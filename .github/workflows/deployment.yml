@@ -25,6 +25,19 @@ jobs:
 
   deploy:
     needs: build
+    environment: PRODUCTION
+    runs-on: ubuntu-latest
+    steps:
+    - name: download-artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: my-artifact-nodejs
+    - name: list file
+      run: ls
+
+  deploy-to-dev:
+    needs: build
+    environment: DEV
     runs-on: ubuntu-latest
     steps:
     - name: download-artifact
