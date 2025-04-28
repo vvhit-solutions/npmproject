@@ -1,0 +1,17 @@
+name: issue workflow
+
+on: 
+  issues: 
+    types:
+      - opened
+jobs: 
+  automation:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: issue opened
+      run: echo "issue opened"
+    - uses: github/issue-labeler@v3.3 #May not be the latest version
+      with:
+        configuration-path: .github/labeler.yml
+        enable-versioned-regex: 0
+        repo-token: ${{ github.token }} 
