@@ -11,5 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: echo hello
+      - run: npm install
       - run: npm run build # dotnet build dotnet restore 
       - run: npm run test
